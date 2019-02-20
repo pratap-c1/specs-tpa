@@ -12,7 +12,7 @@ Below are command supported by the CMS app
 
 |  Command	|   What does it do	|
 | :-- | :-- |
-| `pds://pause` | Pauses the CMS app and prevents it from coming to foreground |
+| `pds://pause?tpappId=<tpappId>` | Pauses the CMS app and prevents it from coming to foreground |
 | `pds://resume` | Informs a paused CMS app that it can now come back to foreground when it wants to	|
 
 ## TPA app commands
