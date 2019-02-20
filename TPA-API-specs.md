@@ -4,7 +4,12 @@
 
 #### To call server APIs a token is required. To get this token using the below mentioned login API
 
+`tpaKey` will be provided by us, which you can store in a safe place in your server where no one can access it.
+
+Login API retruns a `token` which you can use in rest of the APIs 
+
     /tpa/login [POST]
+    
 HEADER
 
     Content-Type:application/json
@@ -32,6 +37,8 @@ RESPONSE - code - 200
 
 #### Notify CMS server about app upgrade
 
+Call this API to inform the server about a new build
+
     /app-upgrade/notify [POST]
 
 HEADER
@@ -47,7 +54,7 @@ BODY
 ```javascript
 {
   "deviceOs": "WINDOWS",  // required
-  "buildDownloadUrl": "http://builddownloadurl", // required
+  "buildDownloadUrl": "http://builddownloadurl", // required - this is the link to download the zip file of your application
   "tpappId": 123, // required - third party app id (CMS team will provide one ID which will be final and you can always use that one
   "tpappVersion": "x.y.z" // required - this is the version of the app that you are updating to
 }
@@ -65,8 +72,12 @@ RESPONSE - code - 200
 
 ## IFrame APIs
 
+These APIs can be used to add a new iframe based to CMS webapp. Each iframe will be shown by the CMS web app on a separate reports page. `iframeUrl` is the URL which be added in the `src` attribute of the `iframe` tag on the CMS web app
+
 ### Add a iframe url
 --------------------
+
+Use this API add an iframe url on the CMS app
 
     /iframe-url [POST]
 
@@ -98,6 +109,8 @@ RESPONSE - code - 200
 ### Update a iframe url
 -----------------------
 
+Use this API update an existing iframe url on the CMS app
+
     /iframe-url/<iframeUrlId> [PUT]
 
 HEADER
@@ -128,6 +141,8 @@ RESPONSE - code - 200
 ### Get all iframe urls
 -----------------------
 
+Fetches all the iframe urls used on the CMS app
+
     /iframe-url [GET]
 
 HEADER
@@ -157,6 +172,8 @@ RESPONSE - code - 200
 ### Get a iframe url by id
 --------------------------
 
+Fetches an individual iframe url on the CMS app
+
     /iframe-url/<iframeUrlId> [GET]
 
 HEADER
@@ -183,6 +200,8 @@ RESPONSE - code - 200
 
 ### Delete a iframe url
 -----------------------
+
+Use this API to delete an iframe url from the CMS app
 
     /iframe-url/<iframeUrlId> [DELETE]
 
