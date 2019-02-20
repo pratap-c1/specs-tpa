@@ -7,3 +7,4 @@
     1. For windows apps [link](Windows-App-Integration-Guidelines.md)
     2. For android apps [link](Android-App-Integration-Guidelines.md)
 3. App Upgrade flow [link](images/App-Upgrade-Flow.png)
+4. Windows CMS app and TPA communication flow [link](images/Windows-CMS-and-TPA-communication.png)
