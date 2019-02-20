@@ -18,7 +18,11 @@ If they are a UWP app then they should use the similar protocol to as CMS app to
 
 Assuming that TPA app uses tpa as their schema the the commands will be as follows:
 
-|  Command	|   What TPA app do	|
+|  Command	|   What TPA app should do	|
 | :-- | :-- |
 | `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implemeting the idle logic on the tpa app |
 | `tpa://launch` | CMS will call this command when they want to launch the TPA app |
+
+If the TPA app is a normal windows app then they should use the `Process` to accept commands from the CMS UWP app:
+
+`Process` = [`system.diagnostics.process.start`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=netframework-4.7.2#System_Diagnostics_Process_Start)
