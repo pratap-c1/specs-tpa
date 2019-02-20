@@ -24,7 +24,7 @@ Assuming that TPA app uses tpa as their schema the the commands will be as follo
 
 |  Command	|   What TPA app should do	|
 | :-- | :-- |
-| `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implemeting the idle logic on the tpa app |
+| `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app |
 | `tpa://launch` | CMS will call this command when they want to launch the TPA app |
 
 ### If TPA is a normal windows app
