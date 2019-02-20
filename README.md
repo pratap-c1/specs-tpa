@@ -1,3 +1,6 @@
-This is a repo for TPA integration guide lines
+Welcome to the TPA specifiations
 
-Please read the [wiki](https://github.com/pratap-c1/specs-tpa/wiki)
+1. TPA API specs [link](wiki/TPA-API-specs)
+2. TPA app and CMS app communication guidelines
+    1. For windows apps [link](wiki/Windows-App-Integration-Guidelines)
+    2. For android apps [link](wiki/Android-App-Integration-Guidelines)
