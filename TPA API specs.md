@@ -1,3 +1,31 @@
+## Login
+
+#### To call server APIs a token is required. To get this token using the below mentioned login API
+
+    /tpa/login [POST]
+HEADER
+
+    Content-Type:application/json
+    
+BODY
+```javascript
+{
+  "tpaKey": "asdasd",  // required
+}
+```
+
+RESPONSE - code - 200
+```javascript
+{
+  "result": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  },
+  "name": "SuccessfullySaved.",
+  "code": 20,
+  "message": "Notification Sent Successfully to Upgrade Devices"
+}
+```
+
 ## TPA app upgrade
 
 #### Notify CMS server about app upgrade
