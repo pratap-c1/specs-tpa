@@ -1,6 +1,6 @@
 << Back to [HOME](README.md)
 
-# Windows-App-Integration-Guidelines.md
+# Windows-App-Integration-Guidelines
 
 ## CMS app commands
 
