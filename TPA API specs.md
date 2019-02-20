@@ -1,3 +1,38 @@
+## TPA app upgrade
+
+#### Notify CMS server about app upgrade
+
+    /app-upgrade/notify [POST]
+
+HEADER
+
+    Content-Type:application/json
+    Authorization : Bearer <token>
+
+QUERY
+
+    NA
+
+BODY
+```javascript
+{
+  "deviceOs": "WINDOWS",  // required
+  "buildDownloadUrl": "http://builddownloadurl", // required
+  "tpappId": 123, // required - third party app id (CMS team will provide one ID which will be final and you can always use that one
+  "tpappVersion": "x.y.z" // required - this is the version of the app that you are updating to
+}
+```
+
+RESPONSE - code - 200
+```javascript
+{
+  "result": null,
+  "name": "SuccessfullySaved.",
+  "code": 20,
+  "message": "Notification Sent Successfully to Upgrade Devices"
+}
+```
+
 ## IFrame APIs
 
 ### Add a iframe url
