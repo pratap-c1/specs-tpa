@@ -25,4 +25,6 @@ Assuming that TPA app uses tpa as their schema the the commands will be as follo
 
 If the TPA app is a normal windows app then they should use the `Process` to accept commands from the CMS UWP app:
 
-`Process` = [`system.diagnostics.process.start`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=netframework-4.7.2#System_Diagnostics_Process_Start)
+`Process` = <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=netframework-4.7.2#System_Diagnostics_Process_Start" target="_blank">`system.diagnostics.process.start`</a>
+
+
