@@ -97,7 +97,8 @@ BODY
 {
   "iframeUrl": "string", // required
   "iframeTitle": "string",  // required - max 100 chars
-  "iframeDescription": "string" // required - max 250 chars
+  "iframeDescription": "string", // required - max 250 chars
+  "order": 22  // required - defines in which order the iframe will appear on the CMS page
 }
 ```
 
@@ -108,7 +109,8 @@ RESPONSE - code - 200
     "iframeUrlId": 1, // long
     "iframeUrl": "string",
     "iframeTitle": "string",
-    "iframeDescription": "string"
+    "iframeDescription": "string",
+    "order": 22
   },
   "name": null,
   "code": null,
@@ -133,7 +135,8 @@ BODY
 {
   "iframeUrl": "string",
   "iframeTitle": "string",
-  "iframeDescription": "string"
+  "iframeDescription": "string",
+  "order": 22
 }
 ```
 
@@ -144,7 +147,8 @@ RESPONSE - code - 200
     "iframeUrlId": 1, // long
     "iframeUrl": "string",
     "iframeTitle": "string",
-    "iframeDescription": "string"
+    "iframeDescription": "string",
+    "order": 22
   },
   "name": null,
   "code": null,
@@ -176,7 +180,8 @@ RESPONSE - code - 200
       "iframeUrlId": 1, // long
       "iframeUrl": "string",
       "iframeTitle": "string",
-      "iframeDescription": "string"
+      "iframeDescription": "string",
+      "order": 22
     }
   ],
   "name": null,
@@ -208,7 +213,8 @@ RESPONSE - code - 200
     "iframeUrlId": 1, // long
     "iframeUrl": "string",
     "iframeTitle": "string",
-    "iframeDescription": "string"
+    "iframeDescription": "string",
+    "order": 22 // integer
   },
   "name": null,
   "code": null,
