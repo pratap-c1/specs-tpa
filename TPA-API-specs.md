@@ -54,7 +54,7 @@ QUERY
 BODY
 ```javascript
 {
-  "deviceOs": "ANDROID|WINDOWS",  // required
+  "deviceOs": "ANDROID|WINDOWS",  // required - possible values ANDROID or WINDOWS
   "buildDownloadUrl": "http://builddownloadurl", // required - this is the link to download the zip file of your application
   "tpappId": 123, // required - third party app id (CMS team will provide one ID which will be final and you can always use that one
   "tpappVersion": "x.y.z", // required - this is the version of the app that you are updating to
@@ -62,10 +62,20 @@ BODY
     23,
     43,
     28
-  ]
+  ],
+  "updateType": "DELETE_AND_UPDATE|ONLY_UPDATE"   // required - possible values DELETE_AND_UPDATE or ONLY_UPDATE
 }
 ```
 
+Parameters explained:
+
+1. `deviceOs` : can be one of the following enums `ANDROID` or `WINDOWS`
+2. `tpappVersion` : version of the app that is being updated
+3. `updateType` : one of the following values: 
+    1. `DELETE_AND_UPDATE` : this will trigger following action: delete all the files in the pre-defined folder and the move the new contents of the zip file to that folder
+    2. `ONLY_UPDATE` : this will replace only those files on that folder which have same name. Copy the new files from the zip to that folder. Keep the files in the folder as it is if they are not present in the zip
+    
+    
 RESPONSE - code - 200
 ```javascript
 {
