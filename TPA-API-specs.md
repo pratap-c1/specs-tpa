@@ -18,6 +18,7 @@ BODY
 ```javascript
 {
   "tpaKey": "asdasd",  // required
+  "customerId": "number" // required - example: 13 - we will provide this value and it will remain fixed
 }
 ```
 
