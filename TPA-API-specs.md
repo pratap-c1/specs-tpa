@@ -73,7 +73,10 @@ Parameters explained:
 2. `tpappVersion` : version of the app that is being updated
 3. `updateType` : one of the following values: 
     1. `DELETE_AND_UPDATE` : this will trigger following action: delete all the files in the pre-defined folder and the move the new contents of the zip file to that folder
-    2. `ONLY_UPDATE` : this will replace only those files on that folder which have same name. Copy the new files from the zip to that folder. Keep the files in the folder as it is if they are not present in the zip
+    2. `ONLY_UPDATE` : this will trigger following action:
+        1. If files are present both zip and in the pre-defined folder, then files in pre-defined folder will be replaced by zip files
+        2. Files which are new and present in the zip but not in the pre-defied folder are copied to the pre-defined folder
+        3. File which are there in the pre-defined folder but are not there in the zip are kept as it is in the pre-defined folder
     
     
 RESPONSE - code - 200
