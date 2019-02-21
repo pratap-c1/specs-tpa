@@ -95,7 +95,9 @@ HEADER
 BODY
 ```javascript
 {
-  "iframeUrl": "string"
+  "iframeUrl": "string", // required
+  "iframeTitle": "string",  // required - max 100 chars
+  "iframeDescription": "string" // required - max 250 chars
 }
 ```
 
@@ -104,7 +106,9 @@ RESPONSE - code - 200
 {
   "result": {
     "iframeUrlId": 1, // long
-    "iframeUrl": "string"
+    "iframeUrl": "string",
+    "iframeTitle": "string",
+    "iframeDescription": "string"
   },
   "name": null,
   "code": null,
@@ -127,7 +131,9 @@ HEADER
 BODY
 ```javascript
 {
-  "iframeUrl": "string"
+  "iframeUrl": "string",
+  "iframeTitle": "string",
+  "iframeDescription": "string"
 }
 ```
 
@@ -136,7 +142,9 @@ RESPONSE - code - 200
 {
   "result": {
     "iframeUrlId": 1, // long
-    "iframeUrl": "string"
+    "iframeUrl": "string",
+    "iframeTitle": "string",
+    "iframeDescription": "string"
   },
   "name": null,
   "code": null,
@@ -166,7 +174,9 @@ RESPONSE - code - 200
   "result": [
     {
       "iframeUrlId": 1, // long
-      "iframeUrl": "string"
+      "iframeUrl": "string",
+      "iframeTitle": "string",
+      "iframeDescription": "string"
     }
   ],
   "name": null,
@@ -196,7 +206,9 @@ RESPONSE - code - 200
 {
   "result": {
     "iframeUrlId": 1, // long
-    "iframeUrl": "string"
+    "iframeUrl": "string",
+    "iframeTitle": "string",
+    "iframeDescription": "string"
   },
   "name": null,
   "code": null,
