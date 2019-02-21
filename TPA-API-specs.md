@@ -40,7 +40,7 @@ RESPONSE - code - 200
 
 Call this API to inform the server about a new build
 
-    /app-upgrade/notify [POST]
+    /tpa/app-upgrade/notify [POST]
 
 HEADER
 
@@ -54,10 +54,15 @@ QUERY
 BODY
 ```javascript
 {
-  "deviceOs": "WINDOWS",  // required
+  "deviceOs": "ANDROID|WINDOWS",  // required
   "buildDownloadUrl": "http://builddownloadurl", // required - this is the link to download the zip file of your application
   "tpappId": 123, // required - third party app id (CMS team will provide one ID which will be final and you can always use that one
-  "tpappVersion": "x.y.z" // required - this is the version of the app that you are updating to
+  "tpappVersion": "x.y.z", // required - this is the version of the app that you are updating to
+  "deviceIds": [    // required - specify on which device you want to send this build
+    23,
+    43,
+    28
+  ]
 }
 ```
 
