@@ -58,6 +58,7 @@ BODY
   "buildDownloadUrl": "http://builddownloadurl", // required - this is the link to download the zip file of your application
   "tpappId": 123, // required - third party app id (CMS team will provide one ID which will be final and you can always use that one
   "tpappVersion": "x.y.z", // required - this is the version of the app that you are updating to
+  "md5checksum": "1fc27e02805368bff99ae27ce62cca21",
   "deviceIds": [    // required - specify on which device you want to send this build
     23,
     43,
@@ -71,7 +72,9 @@ Parameters explained:
 
 1. `deviceOs` : can be one of the following enums `ANDROID` or `WINDOWS`
 2. `tpappVersion` : version of the app that is being updated
-3. `updateType` : one of the following values: 
+3. `1fc27e02805368bff99ae27ce62cca21` : MD5 checksum of the zip file
+4. `deviceIds` : CMS app device IDs on which the build should be updated
+5. `updateType` : one of the following values: 
     1. `DELETE_AND_UPDATE` : this will trigger following action: delete all the files in the pre-defined folder and the move the new contents of the zip file to that folder
     2. `ONLY_UPDATE` : this will trigger following action:
         1. If files are present both zip and in the pre-defined folder, then files in pre-defined folder will be replaced by zip files
