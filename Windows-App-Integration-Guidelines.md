@@ -22,6 +22,6 @@ TPA app should implement following deeplinks (protocol) based commands:
 |  Command	|   What TPA app should do	|
 | :-- | :-- |
 | `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. Please note this is not a launch command but it is just a info command so you need to accept the info and close your app. |
-| `tpa://launch` | CMS will call this command when they want to launch the TPA app |
+| `tpa://launch?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. CMS will call this command when they want to launch the TPA app |
 
 <b>Note</b>: `tpa` keyword in the above mentioned commands are placeholders. They will be replaced by a relevant keyword and will be provided CMS team.
