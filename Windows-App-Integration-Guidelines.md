@@ -12,8 +12,9 @@ Below are command supported by the CMS app
 
 |  Command	|   What does it do	|
 | :-- | :-- |
-| `pds://pause?tpappId=<tpappId>` | Pauses the CMS app and prevents it from coming to foreground. We will provide the `tpappId` to you |
-| `pds://resume` | Informs a paused CMS app that it can now come back to foreground when it wants to	|
+| `pds://pause?tpappId=<tpappId>` | Pauses the CMS app and prevents it from coming to foreground. We will provide the `tpappId` to you. Eg: `pds://pause?tpappId=13` |
+| `pds://resume` | Informs a paused CMS app that it can now come back to foreground when it wants to	
+| `pds://request?tpappId=<tpappId>&launch=<true\|false>` | Request the info from the PDS app. Once this request is received PDS app will call the `info` command or `launch` command on the TPA app, depending upon the value of `launch` = `true` or `false`. TPA app will provide the `tpappId`. Eg: `pds://request?tpappId=13&launch=true` |
 
 ## TPA app commands
 
