@@ -86,4 +86,71 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 
 | `val action = intent.action` (commands) |  What TPA app should do	|
 | :-- | :-- |
+| `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. Please note this is not a launch command but it is just a info command so you need to accept the info and close your app. |
+| `tpa://launch?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. CMS will call this command when they want to launch the TPA app |
+
+Sample code snippet:
+
+```kotlin
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+
+
+const val INFO = "INFO"
+const val LAUNCH = "LAUNCH"
+
+const val EXTRA_DEVICE_ID = "EXTRA_DEVICE_ID"
+const val EXTRA_TIMEOUT_IN_SECONDS = "EXTRA_TIMEOUT_IN_SECONDS"
+
+class CommandsReceiver : BroadcastReceiver() {
+    private val TAG = CommandsReceiver::class.java.canonicalName
+
+    override fun onReceive(context: Context?, intent: Intent?) {
+        if (intent != null) {
+            val action: String? = intent.action
+            val deviceId: Long? = if (intent.hasExtra(EXTRA_DEVICE_ID)) {
+                intent.getLongExtra(EXTRA_DEVICE_ID, -1L)
+            } else {
+                null
+            }
+            val timeoutInSeconds: Long? = if (intent.hasExtra(EXTRA_TIMEOUT_IN_SECONDS)) {
+                intent.getLongExtra(EXTRA_TIMEOUT_IN_SECONDS, -1L)
+            } else {
+                null
+            }
+            when (action) {
+                INFO -> saveInfo(deviceId, timeoutInSeconds)
+                LAUNCH -> launchMyApp(deviceId, timeoutInSeconds)
+            }
+        }
+    }
+
+    fun saveInfo(deviceId: Long?, timeoutInSeconds: Long?) {
+        if (deviceId == null) {
+            Log.e(TAG, "deviceId should not be null")
+            return
+        }
+        if (timeoutInSeconds == null) {
+            Log.e(TAG, "timeoutInSeconds should not be null")
+            return
+        }
+        TODO()
+    }
+
+    fun launchMyApp(deviceId: Long?, timeoutInSeconds: Long?) {
+        if (deviceId == null) {
+            Log.e(TAG, "deviceId should not be null")
+            return
+        }
+        if (timeoutInSeconds == null) {
+            Log.e(TAG, "timeoutInSeconds should not be null")
+            return
+        }
+        TODO()
+    }
+
+}
+```
 
