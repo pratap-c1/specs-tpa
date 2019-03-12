@@ -86,8 +86,8 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 
 | `val action = intent.action` (commands) |  What TPA app should do	|
 | :-- | :-- |
-| `tpa://info?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. Please note this is not a launch command but it is just a info command so you need to accept the info and close your app. |
-| `tpa://launch?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. CMS will call this command when they want to launch the TPA app |
+| `INFO` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. Please note this is not a launch command but it is just a info command so you need to accept the info but not open. |
+| `LAUNCH` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. CMS will call this command when they want to launch the TPA app |
 
 Sample code snippet:
 
