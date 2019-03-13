@@ -159,14 +159,15 @@ class CommandsReceiver : BroadcastReceiver() {
 ```kotlin
 val applicationId = "com.exmaple.myapp"
 val otherAppBroadcastReceiverClassName = "com.example.myapp.CommmandsReceiver"
+val INFO = "INFO"
 
 fun sendBroadCast(context: Context) {
     val intent = Intent()
+    intent.setPackage(applicationId)
     intent.action = INFO
     intent.putExtra(EXTRA_DEVICE_ID, 14L)
     intent.putExtra(EXTRA_TIMEOUT_IN_SECONDS, 30L)
     intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
-    intent.component = ComponentName(applicationId, otherAppBroadcastReceiverClassName)
     context.sendBroadcast(intent)
 }
 ```
