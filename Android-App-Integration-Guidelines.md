@@ -21,9 +21,9 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 
-const val PAUSE = "PAUSE"
-const val RESUME = "RESUME"
-const val REQUEST = "REQUEST"
+const val PAUSE = "com.panasonic.digital.signage.pause"
+const val RESUME = "com.panasonic.digital.signage.resume"
+const val REQUEST = "com.panasonic.digital.signage.request"
 
 const val EXTRA_TPAPP_ID = "EXTRA_TPAPP_ID"
 const val EXTRA_LAUNCH = "EXTRA_LAUNCH"
@@ -98,8 +98,8 @@ import android.content.Intent
 import android.util.Log
 
 
-const val INFO = "INFO"
-const val LAUNCH = "LAUNCH"
+const val INFO = "com.panasonic.digital.signage.info"
+const val LAUNCH = "com.panasonic.digital.signage.launch"
 
 const val EXTRA_DEVICE_ID = "EXTRA_DEVICE_ID"
 const val EXTRA_TIMEOUT_IN_SECONDS = "EXTRA_TIMEOUT_IN_SECONDS"
@@ -156,10 +156,13 @@ class CommandsReceiver : BroadcastReceiver() {
 
 ## Guidelines for sending broadcast:
 
+Make sure you set the applicationId of Digital Signage app correctly. CMS team will provide the application ID to you.
+
+Sample code:
 ```kotlin
 val applicationId = "com.exmaple.myapp"
 val otherAppBroadcastReceiverClassName = "com.example.myapp.CommmandsReceiver"
-val INFO = "INFO"
+val INFO = "com.panasonic.digital.signage.info"
 
 fun sendBroadCast(context: Context) {
     val intent = Intent()
