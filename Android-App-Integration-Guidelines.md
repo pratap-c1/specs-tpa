@@ -1,4 +1,4 @@
-<< Back to [HOME](README.md)
+[<< Back to HOME](README.md)
 
 # Android App Integration Guidelines
 
@@ -14,7 +14,8 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 | `com.panasonic.digital.signage.resume` | Informs a paused CMS app that it can now come back to foreground when it wants to. 
 | `com.panasonic.digital.signage.request` | Request the info from the PDS app. TP app should provide `tpappId` as a `Long` `extra` in then intent. TP app should also provide `launch` as a `boolean` extra. Depending upon the value of `launch` = `true` or `false` PDS app will broadcast the `launch` or `info` command. |
 
-Smaple code snippet:
+
+Smaple `BroadcastReceiver` code in CMS (Digital Signage Android App):
 ```kotlin
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -89,8 +90,8 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 | `com.panasonic.digital.signage.info` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. Please note this is not a launch command but it is just a info command so you need to accept the info but not open. |
 | `com.panasonic.digital.signage.launch` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. CMS will call this command when they want to launch the TPA app |
 
-Sample code snippet:
 
+Smaple `BroadcastReceiver` code in TPA app:
 ```kotlin
 import android.content.BroadcastReceiver
 import android.content.Context
