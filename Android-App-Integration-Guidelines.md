@@ -10,9 +10,9 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 
 |  `val action = intent.action`	(commands) |   What does it do	|
 | :-- | :-- |
-| `PAUSE` | Pauses the CMS app and prevents it from coming to foreground. TP app should provide `tpappId` as a `Long` `extra` in then intent. Eg: `intent.putExtra(EXTRA_TPAPP_ID, 14L)` |
-| `RESUME` | Informs a paused CMS app that it can now come back to foreground when it wants to. 
-| `REQUEST` | Request the info from the PDS app. TP app should provide `tpappId` as a `Long` `extra` in then intent. TP app should also provide `launch` as a `boolean` extra. Depending upon the value of `launch` = `true` or `false` PDS app will broadcast the `launch` or `info` command. |
+| `com.panasonic.digital.signage.pause` | Pauses the CMS app and prevents it from coming to foreground. TP app should provide `tpappId` as a `Long` `extra` in then intent. Eg: `intent.putExtra(EXTRA_TPAPP_ID, 14L)` |
+| `com.panasonic.digital.signage.resume` | Informs a paused CMS app that it can now come back to foreground when it wants to. 
+| `com.panasonic.digital.signage.request` | Request the info from the PDS app. TP app should provide `tpappId` as a `Long` `extra` in then intent. TP app should also provide `launch` as a `boolean` extra. Depending upon the value of `launch` = `true` or `false` PDS app will broadcast the `launch` or `info` command. |
 
 Smaple code snippet:
 ```kotlin
@@ -86,8 +86,8 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 
 | `val action = intent.action` (commands) |  What TPA app should do	|
 | :-- | :-- |
-| `INFO` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. Please note this is not a launch command but it is just a info command so you need to accept the info but not open. |
-| `LAUNCH` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. CMS will call this command when they want to launch the TPA app |
+| `com.panasonic.digital.signage.info` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. Please note this is not a launch command but it is just a info command so you need to accept the info but not open. |
+| `com.panasonic.digital.signage.launch` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. CMS will call this command when they want to launch the TPA app |
 
 Sample code snippet:
 
