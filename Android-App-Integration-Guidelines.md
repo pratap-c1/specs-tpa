@@ -103,13 +103,13 @@ class CommandsReceiver : BroadcastReceiver() {
 
 TPA app needs to implement a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) with following `actions` and read `extras`.
 
-This `BroadcastReceiver` should listent to these `actions` as mentioned in table below
+This `BroadcastReceiver` should listen to these `actions` as mentioned in table below
 
 | `val action = intent.action` (commands) |  What TPA app should do	|
 | :-- | :-- |
 | `com.panasonic.digital.signage.info` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. Please note this is not a launch command but it is just a info command so you need to accept the info but not open. |
 | `com.panasonic.digital.signage.launch` | CMS app will inform the tpa app about CMS `deviceId` as a `Long` `extra` in the intent. And  also the `timeoutInSeconds` as a `Long` `extra` in the intent. CMS will call this command when they want to launch the TPA app |
-
+| `com.panasonic.digital.signage.request` | CMS app will send this action in a broadcast to TP app to their `appVersion` as a `String` extra to tpapp |
 
 Smaple `BroadcastReceiver` code in TPA app:
 ```kotlin
@@ -121,9 +121,12 @@ import android.util.Log
 
 const val INFO = "com.panasonic.digital.signage.info"
 const val LAUNCH = "com.panasonic.digital.signage.launch"
+const val REQUEST = "com.panasonic.digital.signage.request"
+const val INFO = "com.panasonic.digital.signage.info"
 
 const val EXTRA_DEVICE_ID = "EXTRA_DEVICE_ID"
 const val EXTRA_TIMEOUT_IN_SECONDS = "EXTRA_TIMEOUT_IN_SECONDS"
+const val EXTRA_APP_VERSION = "EXTRA_APP_VERSION"
 
 class CommandsReceiver : BroadcastReceiver() {
     private val TAG = CommandsReceiver::class.java.canonicalName
@@ -144,6 +147,7 @@ class CommandsReceiver : BroadcastReceiver() {
             when (action) {
                 INFO -> saveInfo(deviceId, timeoutInSeconds)
                 LAUNCH -> launchMyApp(deviceId, timeoutInSeconds)
+                REQUEST -> sendInfoToDSApp()
             }
         }
     }
@@ -172,6 +176,15 @@ class CommandsReceiver : BroadcastReceiver() {
         TODO()
     }
 
+    fun sendInfoToDSApp() {
+        val appVersion = BuildConfig.VERSION_NAME
+        val intent = Intent()
+        intent.setPackage("DS app applicationId") // DS team will provide this to you
+        intent.action = INFO
+        intent.putExtra(EXTRA_APP_VERSION, appVersion)
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+        context.sendBroadcast(intent)
+    }
 }
 ```
 
