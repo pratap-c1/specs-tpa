@@ -11,8 +11,9 @@ This `BroadcastReceiver` should listent to these `actions` as mentioned in table
 |  `val action = intent.action`	(commands) |   What does it do	|
 | :-- | :-- |
 | `com.panasonic.digital.signage.pause` | Pauses the CMS app and prevents it from coming to foreground. TP app should provide `tpappId` as a `Long` `extra` in then intent. Eg: `intent.putExtra(EXTRA_TPAPP_ID, 14L)` |
-| `com.panasonic.digital.signage.resume` | Informs a paused CMS app that it can now come back to foreground when it wants to. 
+| `com.panasonic.digital.signage.resume` | Informs a paused CMS app that it can now come back to foreground when it wants to. |
 | `com.panasonic.digital.signage.request` | Request the info from the PDS app. TP app should provide `tpappId` as a `Long` `extra` in then intent. TP app should also provide `launch` as a `boolean` extra. Depending upon the value of `launch` = `true` or `false` PDS app will broadcast the `launch` or `info` command. |
+| `com.panasonic.digital.signage.info` | TP app should provide `tpappId` as a `Long` `extra` in then intent. TP app should also provide `appVersion` as a `String` extra |
 
 
 Smaple `BroadcastReceiver` code in CMS (Digital Signage Android App):
@@ -25,9 +26,11 @@ import android.util.Log
 const val PAUSE = "com.panasonic.digital.signage.pause"
 const val RESUME = "com.panasonic.digital.signage.resume"
 const val REQUEST = "com.panasonic.digital.signage.request"
+const val INFO = "com.panasonic.digital.signage.info"
 
 const val EXTRA_TPAPP_ID = "EXTRA_TPAPP_ID"
 const val EXTRA_LAUNCH = "EXTRA_LAUNCH"
+const val EXTRA_APP_VERSION = "EXTRA_APP_VERSION"
 
 class CommandsReceiver : BroadcastReceiver() {
     private val TAG = CommandsReceiver::class.java.canonicalName
@@ -45,10 +48,16 @@ class CommandsReceiver : BroadcastReceiver() {
             } else {
                 null
             }
+            val appVersion: String? = if (intent.hasExtra(EXTRA_APP_VERSION)) {
+                intent.getBooleanExtra(EXTRA_APP_VERSION, null)
+            } else {
+                null
+            }
             when (action) {
                 PAUSE -> pauseApp(tpAppId)
                 RESUME -> resumeApp()
                 REQUEST -> handleRequest(tpAppId, launch)
+                INFO -> handleInfo(tpAppId, appVersion)
             }
         }
     }
@@ -72,6 +81,17 @@ class CommandsReceiver : BroadcastReceiver() {
         }
         if (launch == null) {
             Log.e(TAG, "launch should not be null")
+            return
+        }
+        TODO()
+    }
+    fun handleInfo(tpAppId: Long?, appVersion: String?) {
+        if (tpAppId == null) {
+            Log.e(TAG, "tpAppId should not be null")
+            return
+        }
+        if (appVersion == null) {
+            Log.e(TAG, "appVersion should not be null")
             return
         }
         TODO()
