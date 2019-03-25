@@ -29,6 +29,4 @@ TPA app should implement following deeplinks (protocol) based commands:
 
 <b>Note</b>: 
 1. `tpa` keyword in the above mentioned commands are placeholders. They will be replaced by a relevant keyword and will be provided CMS team.
-2. TPApp should be calling the `pds://info` commanding in following scenarios:
-    1. Whenever their app is upgraded.
-    2. When they are launched the first time.
+2. TPApp should be calling the `pds://info` command when they are launched the first time and any time the CMS app calls the request command
