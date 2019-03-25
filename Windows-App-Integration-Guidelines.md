@@ -1,4 +1,4 @@
-<< Back to [HOME](README.md)
+[<< Back to HOME](README.md)
 
 # Windows-App-Integration-Guidelines
 
