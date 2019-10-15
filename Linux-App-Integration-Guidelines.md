@@ -5,5 +5,6 @@
 ## TPA app communication:
 
 TPA app should implement following deeplinks commands:
+
 |  Command	|   Characteristics	|
 | :-- | :-- |
