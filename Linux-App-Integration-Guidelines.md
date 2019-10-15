@@ -10,7 +10,7 @@ API supported by the CMS app:
 | :-- | :-- |
 | `http://localhost:3000/tpa-pause?tpappId=<TPA-APP-ID>` | Pauses the CMS app and prevents it from coming to foreground. You need to provide the `tpappId` |
 | `http://localhost:3000/tpa-resume` | Informs a paused CMS app that it can now come back to foreground. |
-| `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | Information sharing. (Request the info from the TPA app with `tpappId` and `tpaVersion` and Receive the info from the CMS app. As of now only the `deviceId` and `timeoutInSeconds`). |
+| `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | Information sharing. (Receive the info from the TPA app - `tpappId` and `tpaVersion` and Respond the information, As of now only the `deviceId` and  `timeoutInSeconds`). |
 
 ## TPA app communication:
 
@@ -24,7 +24,7 @@ TPA app should implement following api's:
 
 |  API	|   Characteristics	|
 | :-- | :-- |
-| `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | TPA app must be call this api for information sharing. (Request the info from the TPA app with `tpappId` and `tpaVersion` and Receive the info from the CMS app. As of now only the `deviceId` and `timeoutInSeconds`). |
+| `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | TPA app must be call this api for information sharing. (Request the info from the TPA app with `tpappId` and `tpaVersion` and Receive the information, As of now only the `deviceId` and `timeoutInSeconds`). |
 | `http://localhost:3000/tpa-pause?tpappId=<TPA-APP-ID>` | TPA app must be call this api on launching. |
 | `http://localhost:3000/tpa-resume` | TPA app must be call this api before closing. |
 
