@@ -8,3 +8,4 @@ TPA app should implement following deeplinks commands:
 
 |  Command	|   Characteristics	|
 | :-- | :-- |
+| `tpa://launch?deviceId=<deviceId>&timeoutInSeconds=<timeout>` | CMS linux app will inform the tpa app about CMS `deviceId` and the timeout to be used for implementing the idle logic on the tpa app. CMS will call this command when they want to launch the TPA app |
