@@ -25,11 +25,11 @@ TPA app should implement following api's:
 |  API	|   Characteristics	|
 | :-- | :-- |
 | `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | TPA app must be call this api for information sharing. (Request the info from the TPA app with `tpappId` and `tpaVersion` and Receive the information, As of now only the `deviceId` and `timeoutInSeconds`). |
-| `http://localhost:3000/tpa-pause?tpappId=<TPA-APP-ID>` | TPA app must be call this api on launching. |
+| `http://localhost:3000/tpa-pause?tpappId=<TPA-APP-ID>` | TPA app must be call this api on launching, only when they are not launched by CMS app. |
 | `http://localhost:3000/tpa-resume` | TPA app must be call this api before closing. |
 
 <b>Note</b>:
 * `tpa` keyword in the above mentioned commands are placeholders. They will be replaced by a relevant keyword and will be provided CMS team.
 * For information sharing use api `/tpa-request`.
-* TPA app should be calling the `/tpa-pause` api only when they are not launched by CMS app.
+* TPA app should be calling the `/tpa-pause` api only when they are not launched by CMS app 
 * TPA app should be calling the `/tpa-resume` api every time before closing TAP app.
