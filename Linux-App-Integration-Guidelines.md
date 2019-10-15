@@ -12,7 +12,7 @@ TPA app should implement following deeplinks commands:
 
 TPA app should implement following api's:
 
-|  Api	|   Characteristics	|
+|  API	|   Characteristics	|
 | :-- | :-- |
 | `http://localhost:3000/tpa-request?tpappId=<TPA-APP-ID>&tpaVersion=<TPA-VERSION>` | TPA app must be call this api for information sharing like - `deviceId`, `timeoutInSeconds` etc... |
 | `http://localhost:3000/tpa-pause?tpappId=<TPA-APP-ID>` | TPA app must be call this api on launching. |
